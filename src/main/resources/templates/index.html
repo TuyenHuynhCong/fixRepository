@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>List Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1 text align="center">QUẢN LÍ SẢN PHẨM</h1>
+
+    <form th:object="${product}" th:action="@{search}"  method="get">
+        <input class=" " type="text" />
+        <button type="submit" >tìm kiếm</button>
+    </form>
+    <table class="table table-active">
+        <tr>
+            <th>Tên Sản Phẩm</th>
+            <th>Nhà Cung Cấp</th>
+            <th>Số Lượng</th>
+            <th> Giá </th>
+            <th>Hoạt động</th>
+
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.nameproduct}"></td>
+            <td th:text="${product.nhacungcap}"></td>
+            <td th:text="${product.soluong}"></td>
+            <td th:text="${product.gia}"></td>
+            <td>
+                <a th:href="@{/edit?id={id}(id=${product.id})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete?id={id}(id=${product.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/addProduct" class="btn btn-success">Add Product</a>
+    <a href="/logout" class="btn btn-success">Logout</a>
+
+</div>
+</body>
+</html>

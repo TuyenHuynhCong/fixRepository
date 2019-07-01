@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    .form-signin{
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    input[type=username] ,input[type=password]{
+        /*width: 85%;*/
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    .error{
+        color: #E82228;
+
+    }
+    .btn btn-lg btn-primary btn-block{
+        padding: 14px;
+        width: 395px;
+        margin: 0 auto;
+    }
+    button[type=Submit]{
+        /*width: 85%;*/
+
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    .title{
+
+        margin: 70px 0 40px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+    }
+</style>
+<body>
+    <h2 class="title"> Đăng Nhập</h2>
+<!--       <form th:object="${login}" th:action="@{/login}" action="#" method="post">-->
+            <form th:action="@{/login}" method="post" class="form-signin">
+            <div >
+
+                <input type="username" id="username" name="username" th:placeholder="username"
+                       class="form-control"/> <br/>
+                <input type="password" th:placeholder="password"
+                       id="text" name="password" class="form-control"/> <br/>
+            </div>
+            <div style="clear: both; display: block; height: 10px"></div>
+
+            <div style="clear: both; display: block; height: 10px"></div>
+
+            <div style="clear: both; display: block; height: 10px"></div>
+            <button class="btn btn-lg btn-primary btn-block" name="Submit" value="login" type="Submit"
+                    th:text="login"></button>
+
+
+<span th:if="${logError != null}" class="error" >uername hoặc password không đúng!!! </span>
+
+
+</div>
+            </form >
+</body>
+</html>
