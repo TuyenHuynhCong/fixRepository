@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+    <style>
+        .title{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1 class="title">New product</h1>
+    <div class="col-md-auto">
+        <form th:object="${product}" th:action="@{saveProduct}" action="#" method="post">
+            <div>
+                <label> Tên Sản phẩm</label>
+                <input type="text" th:field="*{nameproduct}" class="form-control" placeholder="Tên Sản Phẩm"/>
+            </div>
+            <div style="clear: both; display: block; height: 10px"></div>
+            <div>
+                <label> Nhà Cung Cấp</label>
+
+                <input type="text" th:field="*{nhacungcap}" class="form-control" placeholder="Nhà Cung Cấp"/>
+            </div>
+            <div style="clear: both; display: block; height: 10px"></div>
+            <div>
+                <label> Số Lượng</label>
+
+                <input type="text" th:field="*{soluong}" class="form-control" placeholder="so luong"/>
+            </div>
+            <div style="clear: both; display: block; height: 10px"></div>
+            <input type="submit" class="btn btn-success" value="Save"/>
+            <a href="/index" class="btn btn-success">Back</a>
+        </form>
+
+
+
+    </div>
+</div>
+</body>
+</html>
